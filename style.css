@@ -1,3 +1,13 @@
+:root {
+    --face: #be9d66;
+    --low-light: #111;
+    --side: #896c3b;
+    --side-dark: #120e08;
+    --coin-size: 10rem;
+    --coin-face: url('https://sdbullion.com/media/catalog/product/cache/221911a43bc3688b31ac91bd3935d527/2/0/2023-silver-ram-truth-1oz-obverse-500x500-min_1_1.jpg');
+    --coin-back: url('https://sdbullion.com/media/catalog/product/cache/221911a43bc3688b31ac91bd3935d527/2/0/2023-silver-ram-truth-1oz-reverse-500x500-min_1_1.jpg')
+}
+
 *,
 *::before,
 *::after {
@@ -47,28 +57,37 @@ footer {
 #coin {
     position: relative;
     margin: 0 auto;
-    width: 160px;
-    height: 160px;
+    width: var(--coin-size);
+    height: var(--coin-size);
     cursor: pointer;
     transition: transform 1s ease-in;
     transform-style: preserve-3d;
 }
 
 .side {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+    width: var(--coin-size);
+    height: var(--coin-size);
+    border-radius: 100%;
     position: absolute;
     backface-visibility: hidden;
 }
 
 .head {
-    background-color: gold;
+    position: absolute;
+    background-image: var(--coin-face);
+    width: var(--coin-size);
+    height: var(--coin-size);
+    /* background-color: gold; */
     z-index: 10;
 }
 
 .tail {
-    background-color: silver;
+    position: absolute;
+
+    background-image: var(--coin-back);
+    width: var(--coin-size);
+    height: var(--coin-size);
+    /* background-color: silver; */
     transform: rotateX(-180deg);
 }
 
